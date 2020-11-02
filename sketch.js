@@ -17,7 +17,7 @@ function draw()
 }
 
 function start_rec(){
-
+    myRec.resultString = "";
     myRec.start();
     setTimeout(() => {myVoice.speak("mi hai detto" + myRec.resultString)}, 5000);
     setTimeout(() => {sentiment_analisis()}, 5000);
@@ -40,7 +40,7 @@ function sentiment_analisis(){
   console.log(prediction)
   text("Il tuo punteggio è :" + prediction.score, 100,100)
   if (prediction.score > 0.5){
-      myVoice.speak("In base al tuo racconto sei positivo")
+      myVoice.speak("In base al tuo racconto sei emotivamente positivo")
   } else {
       myVoice.speak("In base a quello che mi hai detto sei un po' triste")
   }
